@@ -9,7 +9,7 @@ class InputField extends React.Component
 
     onEdit() {
         this.setState({
-            edit: !this.state.edit
+            edit: true
         });
     }
 
@@ -17,7 +17,7 @@ class InputField extends React.Component
         if (e.key == 'Enter') {
             var val = this.refs.newText.value; 
         this.setState({
-            edit: !this.state.edit,
+            edit: false,
             msg: val
         });
     }
@@ -26,13 +26,14 @@ class InputField extends React.Component
     render() {
         if (this.state.edit == true)
         {
-            return <input autoFocus ref="newText" defaultValue={this.state.msg} type="text" onKeyPress={this.endEdit} />
-            } else {
+            return (
+			<input autoFocus ref="newText" defaultValue={this.state.msg} type="text" onKeyPress={this.endEdit} />
+			)
+        } else {
             return(
-                <div> 
-                    <p onClick={this.onEdit}>{this.state.msg}</p>  
-                </div>
-              )}
+              <p onClick={this.onEdit}>{this.state.msg}</p>   
+            )
+		}
     }
 }
 
