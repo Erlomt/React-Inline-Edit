@@ -24,16 +24,10 @@ class InputField extends React.Component
 }
 
     render() {
-        if (this.state.edit == true)
-        {
-            return (
-			<input autoFocus ref="newText" defaultValue={this.state.msg} type="text" onKeyPress={this.endEdit} />
-			)
-        } else {
-            return(
-              <p onClick={this.onEdit}>{this.state.msg}</p>   
-            )
-		}
+        if (this.state.edit)
+       return <input autoFocus ref="newText" defaultValue={this.state.msg} type="text" onKeyPress={this.endEdit} />	
+        else 
+       return<p onClick={this.onEdit}>{this.state.msg}</p>   
     }
 }
 
